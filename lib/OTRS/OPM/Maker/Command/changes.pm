@@ -38,9 +38,6 @@ sub opt_spec {
 sub validate_args {
     my ($self, $opt, $args) = @_;
 
-    if ( !$opt->{file} ) {
-    }
-
     if ( !$opt->{dir} ) {
         $opt->{dir} = OTRS::OPM::Maker::Utils::Git->find_toplevel( dir => '.' );
     }
@@ -48,6 +45,20 @@ sub validate_args {
     if ( !$opt->{dir} ) {
         $self->usage_error( 'no directory with addon found' );
         exit;
+    }
+
+    if ( !$opt->{file} ) {
+        my @parts = $opt->{dir};
+        if ( -d $opt->{dir} . '/doc' ) {
+            push @parts, 'doc';
+        }
+
+        my $name = (File::Spec->splitpath( File::Spec->rel2abs( $opt->{dir} ) ) ) [-1];
+
+        $opt->{file} = File::Spec->catfile(
+            @parts,
+            $name . '.changes',
+        );
     }
 }
 
@@ -57,20 +68,25 @@ sub execute {
     chdir $opt->{dir};
 
     my $changes_file = Path::Class::File->new( $opt->{file} );
-    my $lines        = $changes_file->slurp( iomode => '<:encoding(UTF-8)' );
+    my @entries;
+    my $lines;
 
-    my @entries = grep{ ( $_ // '' ) ne '' }split m{
-        (?:\s+)?
-        (                                         # headline with version and date
-            ^
-            \d+\.\d+ (?:\.\d+)?                   # version
-            \s+ -? \s+
-            \d{4}-\d{2}-\d{2} (?:\s|T)            # date
-            \d{2}:\d{2}:\d{2} (?:[+-]\d+:\d+)?\s  # time
-            (?: - \s [a-f0-9]+ )?                 # optional git commit
-        )
-        \s+
-    }xms, $lines;
+    if ( -f $changes_file->stringify ) {
+        $lines = $changes_file->slurp( iomode => '<:encoding(UTF-8)' );
+
+        my @entries = grep{ ( $_ // '' ) ne '' }split m{
+            (?:\s+)?
+            (                                         # headline with version and date
+                ^
+                \d+\.\d+ (?:\.\d+)?                   # version
+                \s+ -? \s+
+                \d{4}-\d{2}-\d{2} (?:\s|T)            # date
+                \d{2}:\d{2}:\d{2} (?:[+-]\d+:\d+)?\s  # time
+                (?: - \s [a-f0-9]+ )?                 # optional git commit
+            )
+            \s+
+        }xms, $lines;
+    }
 
     my $last_version;
     my $last_commit;
@@ -89,15 +105,20 @@ sub execute {
     }
 
     $last_version //= '';
+    $lines        //= '';
 
-    my @commits = OTRS::OPM::Maker::Utils::Git->commits(
+    my $new = OTRS::OPM::Maker::Utils::Git->commits(
         version => $last_version,
         dir     => $opt->{dir},
     );
 
-    my $fh = IO::File->new( $name . '.changes', 'w' ) or die $!;
-    $fh->print( $new . "\n\n" . $lines );
+    my @all_lines = ( $new, $lines ? $lines : () );
+
+    my $fh = IO::File->new( $changes_file->stringify, 'w' ) or die $!;
+    $fh->print( join "\n\n", @all_lines );
     $fh->close;
+
+    return $changes_file->stringify;
 }
 
 1;
