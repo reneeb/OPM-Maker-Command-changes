@@ -18,7 +18,7 @@ use Time::Piece;
 use OTRS::OPM::Maker -command;
 use OTRS::OPM::Maker::Utils::Git;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 sub abstract {
     return "Generate changes file based on git commits";
