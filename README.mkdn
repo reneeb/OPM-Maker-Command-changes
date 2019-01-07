@@ -1,0 +1,69 @@
+[![Build Status](https://travis-ci.org/reneeb/OTRS-OPM-Maker-Command-changes.svg?branch=master)](https://travis-ci.org/reneeb/OTRS-OPM-Maker-Command-changes)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/OTRS-OPM-Maker-Command-changes.png)](http://cpants.charsbar.org/dist/overview/OTRS-OPM-Maker-Command-changes)
+[![GitHub issues](https://img.shields.io/github/issues/reneeb/OTRS-OPM-Maker-Command-changes.svg)](https://github.com/reneeb/OTRS-OPM-Maker-Command-changes/issues)
+
+# NAME
+
+OTRS::OPM::Maker::Command::changes - Generate changes file based on vcs commits
+
+# VERSION
+
+version 0.02
+
+
+
+# Development
+
+The distribution is contained in a Git repository, so simply clone the
+repository
+
+```
+$ git clone http://github.com/reneeb/OTRS-OPM-Maker-Command-changes.git
+```
+
+and change into the newly-created directory.
+
+```
+$ cd OTRS-OPM-Maker-Command-changes
+```
+
+The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to
+build the distribution, hence this will need to be installed before
+continuing:
+
+```
+$ cpanm Dist::Zilla
+```
+
+To install the required prequisite packages, run the following set of
+commands:
+
+```
+$ dzil authordeps --missing | cpanm
+$ dzil listdeps --author --missing | cpanm
+```
+
+The distribution can be tested like so:
+
+```
+$ dzil test
+```
+
+To run the full set of tests (including author and release-process tests),
+add the `--author` and `--release` options:
+
+```
+$ dzil test --author --release
+```
+
+# AUTHOR
+
+Renee Baecker <reneeb@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2017 by Renee Baecker.
+
+This is free software, licensed under:
+
+    The Artistic License 2.0 (GPL Compatible)
