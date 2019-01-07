@@ -1,5 +1,7 @@
 package OTRS::OPM::Maker::Utils::Git;
 
+# ABSTRACT: Get changes information from git
+
 use strict;
 use warnings;
 
@@ -94,3 +96,16 @@ sub _check_version {
 }
 
 1;
+
+=head1 SYNOPSIS
+
+=head1 METHODS
+
+=head2 commits
+
+Get all commits that are relevant for the new version.
+
+=head2 find_toplevel
+
+Get top level directory of the git repository.
+
