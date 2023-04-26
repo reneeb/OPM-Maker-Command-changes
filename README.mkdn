@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/reneeb/OTRS-OPM-Maker-Command-changes.svg?branch=master)](https://travis-ci.org/reneeb/OTRS-OPM-Maker-Command-changes)
-[![Kwalitee status](http://cpants.cpanauthors.org/dist/OTRS-OPM-Maker-Command-changes.png)](http://cpants.charsbar.org/dist/overview/OTRS-OPM-Maker-Command-changes)
+[![Kwalitee status](https://cpants.cpanauthors.org/dist/OTRS-OPM-Maker-Command-changes.png)](https://cpants.cpanauthors.org/dist/OTRS-OPM-Maker-Command-changes)
 [![GitHub issues](https://img.shields.io/github/issues/reneeb/OTRS-OPM-Maker-Command-changes.svg)](https://github.com/reneeb/OTRS-OPM-Maker-Command-changes/issues)
 
 # NAME

@@ -1,4 +1,4 @@
-package OTRS::OPM::Maker::Command::changes;
+package OPM::Maker::Command::changes;
 
 use strict;
 use warnings;
@@ -15,10 +15,10 @@ use List::Util qw(first);
 use Path::Class ();
 use Time::Piece;
 
-use OTRS::OPM::Maker -command;
-use OTRS::OPM::Maker::Utils::Git;
+use OPM::Maker -command;
+use OPM::Maker::Utils::Git;
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 sub abstract {
     return "Generate changes file based on git commits";
@@ -39,7 +39,7 @@ sub validate_args {
     my ($self, $opt, $args) = @_;
 
     if ( !$opt->{dir} ) {
-        $opt->{dir} = OTRS::OPM::Maker::Utils::Git->find_toplevel( dir => '.' );
+        $opt->{dir} = OPM::Maker::Utils::Git->find_toplevel( dir => '.' );
     }
 
     if ( !$opt->{dir} ) {
@@ -107,7 +107,7 @@ sub execute {
     $last_version //= '';
     $lines        //= '';
 
-    my $new = OTRS::OPM::Maker::Utils::Git->commits(
+    my $new = OPM::Maker::Utils::Git->commits(
         version => $last_version,
         dir     => $opt->{dir},
     );

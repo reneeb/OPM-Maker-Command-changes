@@ -1,5 +1,9 @@
-History for OTRS::OPM::Maker::Command::changes
-==============================================
+History for OPM::Maker::Command::changes
+========================================
+
+0.03 2023-04-26
+
+     + rename OTRS::OPM::* to OPM::*
 
 0.02 2017-11-19
 

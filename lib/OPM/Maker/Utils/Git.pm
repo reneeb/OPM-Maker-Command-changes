@@ -1,4 +1,4 @@
-package OTRS::OPM::Maker::Utils::Git;
+package OPM::Maker::Utils::Git;
 
 # ABSTRACT: Get changes information from git
 

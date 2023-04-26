@@ -37,18 +37,18 @@ Date:   Tue Nov 14 10:35:07 2017 +0100
     
     Fuer den Text des Commits
 
-diff --git a/AtheneCore.sopm b/AtheneCore.sopm
+diff --git a/PSCore.sopm b/PSCore.sopm
 index 322a282..a6068d6 100644
---- a/AtheneCore.sopm
-+++ b/AtheneCore.sopm
+--- a/PSCore.sopm
++++ b/PSCore.sopm
 @@ -2,7 +2,7 @@
  <otrs_package version="1.0">
      <!-- GENERATED WITH OTRS::OPM::Maker::Command::sopm (1.37) -->
-     <Name>AtheneCore</Name>
+     <Name>PSCore</Name>
 -    <Version>$old_version</Version>
 +    <Version>$new_version</Version>
      <Framework>17.1.x</Framework>
-     <PackageRequired Version="15.99.81">AtheneExtensions</PackageRequired>
+     <PackageRequired Version="15.99.81">PSExtensions</PackageRequired>
      <PackageRequired Version="5.0.1">DynamicFieldInteger</PackageRequired>~;
     
 }

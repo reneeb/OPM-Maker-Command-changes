@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 use Test::More;
-use OTRS::OPM::Maker::Utils::Git;
+use OPM::Maker::Utils::Git;
 
 my @tests = (
     [ '3.3.1', '3.3.1', '' ],
@@ -18,7 +18,7 @@ my @tests = (
 for my $test ( @tests ) {
     my ($old, $new, $check) = @{ $test || [] };
 
-    my $result = OTRS::OPM::Maker::Utils::Git::_check_version(
+    my $result = OPM::Maker::Utils::Git::_check_version(
         old_version => $old,
         new_version => $new,
     );

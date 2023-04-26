@@ -7,14 +7,14 @@ use Test::More;
 use Test::LongString;
 use File::Basename;
 
-use OTRS::OPM::Maker;
-use OTRS::OPM::Maker::Command::changes;
+use OPM::Maker;
+use OPM::Maker::Command::changes;
 
 my $git =  dirname(__FILE__) . '/../bin/git';
 
-$OTRS::OPM::Maker::Utils::Git::GIT = 'perl ' . $git;
+$OPM::Maker::Utils::Git::GIT = 'perl ' . $git;
 
-my $file = OTRS::OPM::Maker->execute_command( 'OTRS::OPM::Maker::Command::changes', { dir => '.' }, [] );
+my $file = OPM::Maker->execute_command( 'OTRS::OPM::Maker::Command::changes', { dir => '.' }, [] );
 ok $file;
 ok -f $file;
 
