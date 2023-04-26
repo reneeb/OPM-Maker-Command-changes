@@ -14,7 +14,7 @@ my $git =  dirname(__FILE__) . '/../bin/git';
 
 $OPM::Maker::Utils::Git::GIT = 'perl ' . $git;
 
-my $file = OPM::Maker->execute_command( 'OTRS::OPM::Maker::Command::changes', { dir => '.' }, [] );
+my $file = OPM::Maker->execute_command( 'OPM::Maker::Command::changes', { dir => '.' }, [] );
 ok $file;
 ok -f $file;
 

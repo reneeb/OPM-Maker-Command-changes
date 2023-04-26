@@ -5,13 +5,13 @@ The distribution is contained in a Git repository, so simply clone the
 repository
 
 ```
-$ git clone http://github.com/reneeb/OTRS-OPM-Maker-Command-changes.git
+$ git clone http://github.com/reneeb/OPM-Maker-Command-changes.git
 ```
 
 and change into the newly-created directory.
 
 ```
-$ cd OTRS-OPM-Maker-Command-changes
+$ cd OPM-Maker-Command-changes
 ```
 
 The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to

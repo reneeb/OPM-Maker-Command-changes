@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/reneeb/OTRS-OPM-Maker-Command-changes.svg?branch=master)](https://travis-ci.org/reneeb/OTRS-OPM-Maker-Command-changes)
-[![Kwalitee status](https://cpants.cpanauthors.org/dist/OTRS-OPM-Maker-Command-changes.png)](https://cpants.cpanauthors.org/dist/OTRS-OPM-Maker-Command-changes)
-[![GitHub issues](https://img.shields.io/github/issues/reneeb/OTRS-OPM-Maker-Command-changes.svg)](https://github.com/reneeb/OTRS-OPM-Maker-Command-changes/issues)
+[![Build Status](https://travis-ci.org/reneeb/OPM-Maker-Command-changes.svg?branch=master)](https://travis-ci.org/reneeb/OPM-Maker-Command-changes)
+[![Kwalitee status](https://cpants.cpanauthors.org/dist/OPM-Maker-Command-changes.png)](https://cpants.cpanauthors.org/dist/OPM-Maker-Command-changes)
+[![GitHub issues](https://img.shields.io/github/issues/reneeb/OPM-Maker-Command-changes.svg)](https://github.com/reneeb/OPM-Maker-Command-changes/issues)
 
 # NAME
 
-OTRS::OPM::Maker::Command::changes - Generate changes file based on vcs commits
+OPM::Maker::Command::changes - Generate changes file based on vcs commits
 
 # VERSION
 
-version 0.02
+version 0.03
 
 
 
@@ -18,13 +18,13 @@ The distribution is contained in a Git repository, so simply clone the
 repository
 
 ```
-$ git clone http://github.com/reneeb/OTRS-OPM-Maker-Command-changes.git
+$ git clone http://github.com/reneeb/OPM-Maker-Command-changes.git
 ```
 
 and change into the newly-created directory.
 
 ```
-$ cd OTRS-OPM-Maker-Command-changes
+$ cd OPM-Maker-Command-changes
 ```
 
 The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to
